@@ -1,24 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "backend/**/*.js",
-        "use": "@vercel/node"
-      },
-      {
-        "src": "pasta/**/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "/backend/$1"
-      },
-      {
-        "src": "/(.*)",
-        "dest": "/pasta/$1"
-      }
-    ]
-  }
-  
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/backend/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/pasta/$1"
+    }
+  ]
+}
