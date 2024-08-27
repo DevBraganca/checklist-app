@@ -1,5 +1,5 @@
 async function addItem(description) {
-    const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist', {
+    const response = await fetch('https://checklist-rg0fj4j9a-bragancas-projects.vercel.app/api/checklist', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -12,7 +12,7 @@ async function addItem(description) {
 }
 
 async function toggleConfirm(itemId, confirmed) {
-    await fetch(`https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist/${itemId}/confirm`, {
+    await fetch(`https://checklist-rg0fj4j9a-bragancas-projects.vercel.app/api/checklist/${itemId}/confirm`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ async function toggleConfirm(itemId, confirmed) {
 }
 
 async function deleteItem(itemId) {
-    await fetch(`https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist/${itemId}`, {
+    await fetch(`https://checklist-rg0fj4j9a-bragancas-projects.vercel.app/api/checklist/${itemId}`, {
         method: 'DELETE',
     });
 
@@ -33,7 +33,7 @@ async function deleteItem(itemId) {
 
 async function renderChecklist() {
     try {
-        const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist');
+        const response = await fetch('https://checklist-rg0fj4j9a-bragancas-projects.vercel.app/api/checklist');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -91,7 +91,7 @@ async function handleAddItem() {
 
 async function handleCheckAll() {
     try {
-        const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist');
+        const response = await fetch('https://checklist-rg0fj4j9a-bragancas-projects.vercel.app/api/checklist');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
