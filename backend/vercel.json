@@ -11,6 +11,11 @@
         "src": "/api/(.*)",
         "dest": "/backend/$1"
       }
+    ],
+    "rewrites": [
+          { "source": "/(.*)", "destination": "/pasta/index.html" }
     ]
-  }
+        
+}
+  
   
