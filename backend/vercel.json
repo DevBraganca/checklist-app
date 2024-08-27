@@ -4,18 +4,21 @@
       {
         "src": "backend/**/*.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "pasta/**/*",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/api/(.*)",
         "dest": "/backend/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/pasta/$1"
       }
-    ],
-    "rewrites": [
-          { "source": "/(.*)", "destination": "/pasta/index.html" }
     ]
-        
-}
-  
+  }
   
