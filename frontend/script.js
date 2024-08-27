@@ -33,7 +33,7 @@ async function deleteItem(itemId) {
 
 async function renderChecklist() {
     try {
-        const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app');
+        const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -91,7 +91,7 @@ async function handleAddItem() {
 
 async function handleCheckAll() {
     try {
-        const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app');
+        const response = await fetch('https://y-48zr2nlqs-bragancas-projects.vercel.app/api/checklist');
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
