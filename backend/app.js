@@ -1,29 +1,41 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const checklistRoutes = require('./routes/checklist');
 
 const app = express();
+const port = process.env.PORT || 3000;
+
+// Conexão com o MongoDB
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Failed to connect to MongoDB:', err));
 
 // Middleware
-app.use(cors()); // Adicione esta linha para permitir CORS
+app.use(cors());
 app.use(express.json());
 
-// Conectando ao MongoDB
-mongoose.connect('mongodb://localhost:27017/checklist', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('Conectado ao MongoDB');
-}).catch((error) => {
-  console.error('Could not connect to MongoDB:', error.message);
+// Definição de rotas
+app.get('/api/checklist', async (req, res) => {
+    try {
+        // Adicione aqui o código para buscar dados do banco de dados
+        res.json({ message: 'Endpoint GET funcionando!' });
+    } catch (err) {
+        res.status(500).json({ error: 'Erro no servidor' });
+    }
 });
 
-// Rotas
-app.use('/api/checklist', checklistRoutes);
+app.post('/api/checklist', async (req, res) => {
+    try {
+        // Adicione aqui o código para adicionar dados ao banco de dados
+        res.status(201).json({ message: 'Item adicionado' });
+    } catch (err) {
+        res.status(500).json({ error: 'Erro no servidor' });
+    }
+});
 
-// Iniciar o servidor
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Inicie o servidor
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
 });
