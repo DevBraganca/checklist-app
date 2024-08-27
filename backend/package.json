@@ -1,0 +1,16 @@
+{
+    "name": "checklist-app",
+    "version": "1.0.0",
+    "description": "Simple checklist app with frontend, backend, and MongoDB",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Seu Nome",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.19.2",
+        "mongoose": "^7.8.1"
+    }
+}

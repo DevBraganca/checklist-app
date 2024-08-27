@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist Libanes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Checklist Libanes</h1>
+
+    <div>
+        <input type="text" id="item-input" placeholder="Adicionar novo item">
+        <button onclick="handleAddItem()">Adicionar Item</button>
+    </div>
+
+    <ul id="checklist"></ul>
+
+    <button id="main-button" class="no-items" onclick="handleCheckAll()">Nenhum item adicionado</button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p id="modal-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
