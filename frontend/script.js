@@ -1,4 +1,4 @@
-const apiUrl = process.env.REACT_APP_API_URL;
+const apiUrl = 'https://checklist-12q1y7hqy-bragancas-projects.vercel.app';
 
 async function addItem(description) {
     const response = await fetch(`${apiUrl}/api/checklist`, {
