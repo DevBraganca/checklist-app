@@ -9,27 +9,13 @@ async function addItem(description) {
         body: JSON.stringify({ description }),
     });
 
+    if (!response.ok) {
+        console.error('Erro ao adicionar item:', response.statusText);
+        return;
+    }
+
     const newItem = await response.json();
-    renderChecklist();
-}
-
-async function toggleConfirm(itemId, confirmed) {
-    await fetch(`${apiUrl}/api/checklist/${itemId}/confirm`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ confirmed }),
-    });
-
-    renderChecklist();
-}
-
-async function deleteItem(itemId) {
-    await fetch(`${apiUrl}/api/checklist/${itemId}`, {
-        method: 'DELETE',
-    });
-
+    console.log('Item adicionado:', newItem);
     renderChecklist();
 }
 
